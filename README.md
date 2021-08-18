@@ -26,12 +26,17 @@ iv. Install dependencies
 npm install
 ```
 
-v. Start the JSON server
+### Usage
+i. Make sure you're inside the `task-tracker` folder
+
+ii. Start the JSON server
 ```bash
 npm run server
 ```
 
-vi. Start the Vite development server
+iii. Open another terminal instance and move inside the same folder
+
+iv. Start the Vite development server
 ```bash
 npm run dev
 ```
