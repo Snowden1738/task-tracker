@@ -1,14 +1,14 @@
 # Task Tracker
-A basic task tracking app I created based on the walkthrough by Traversy Media. Apart from the walkthrough, I also added a few more features and effects to the app that I deemed fit.
+A basic task tracking app I created based on the [walkthrough](https://youtu.be/w7ejDZ8SWv8) by [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA). Apart from the walkthrough, I also added a few more features and effects to the app that I deemed fit.
 
 ## Technologies Used
-- React.js
-- Node.js
-- JavaScript
+- [React.js](https://reactjs.org/)
+- [Node.js](https://nodejs.org)
+- [JavaScript](https://www.javascript.com/)
 - CSS3
 - HTML5
 
-### Installation & Setup
+## Installation & Setup
 i. Clone the repository
 ```bash
 git clone https://github.com/Snowden1738/task-tracker
@@ -24,7 +24,7 @@ iii. Install dependencies
 npm install
 ```
 
-### How to Start/Launch?
+## How to Start/Launch?
 i. Make sure you're inside the `task-tracker` folder
 
 ii. Start the JSON server
@@ -39,7 +39,7 @@ iv. Start the Vite development server
 npm run dev
 ```
 
-### Usage Instructions & Features
+## Usage Instructions & Features
 - As stated, the task list is persistent. The tasks stay intact even after closing the browser or stopping the live server.
 - When there's no task in the list, or possibly when you're opening this app for the first time, you'll see a message in the task list area that says `No tasks pending! You're all caught up!`.
 - To add a task to the list, click on the `Add` button at the top of the page. This will make a pane appear, where you can enter the task's title, set the date and time, and check the box or leave it unchecked, depending on whether you want a reminder for the task or not. Then click the `Save Task` button to save the task.
@@ -50,3 +50,6 @@ npm run dev
 - The `X` button on the right of any task when clicked, deletes the task from the list.
 - The tasks stay arranged in reverse chronological order from top to bottom at any given time. In simple words, the task with the latest reminder time will appear at the top, and so on.
 - Some additional basic effects have been incorporated to appeal to the overall look-and-feel of using the app. These include changing the tint/opacity of the task components and buttons when hovered on them with the mouse pointer. The task components and buttons temporarily change their size when clicked (active).
+
+## What's Next?
+I did this project for educational purposes for learning React.js. In the future, I will add a few more features to it as time goes by and I learn some more stuff. Also, I will add a few more optimizations for the smooth functioning of the app and overall improvement in performance.
