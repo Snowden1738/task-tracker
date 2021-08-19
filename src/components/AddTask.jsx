@@ -2,7 +2,8 @@ import { useState } from 'react'
 
 const AddTask = ({ addTask, closeAdder }) => {
 	const [text, setText] = useState('')
-	const [day, setDay] = useState('')
+	const [time, setTime] = useState('')
+	const [date, setDate] = useState('')
 	const [reminder, setReminder] = useState(false)
 	const [autoHideAdder, setAutoHide] = useState(true)
 
@@ -14,16 +15,21 @@ const AddTask = ({ addTask, closeAdder }) => {
 			return
 		}
 
-		if (day.length == 0) {
-			alert('Please add a date and time for the task!')
+		if (date.length == 0) {
+			alert('Please add a date for the task!')
+		}
+
+		if (time.length == 0) {
+			alert('Please add a time for the task!')
 			return
 		}
 
 		const completed = false
-		addTask({ text, day, reminder, completed })
+		addTask({ text, date, time, reminder, completed })
 
 		setText('')
-		setDay('')
+		setDate('')
+		setTime('')
 		setReminder(false)
 
 		autoHideAdder && closeAdder()
@@ -45,8 +51,12 @@ const AddTask = ({ addTask, closeAdder }) => {
 					<input type='text' placeholder='Add Task Title' value={text} onChange={(e) => setText(e.target.value)}/>
 				</div>
 				<div className='form-control'>
-					<label>Date & Time</label>
-					<input type='datetime-local' value={day} onChange={(e) => setDay(e.target.value)}/>
+					<label>Date</label>
+					<input type='date' value={date} onChange={(e) => setDate(e.target.value)}/>
+				</div>
+				<div className='form-control'>
+					<label>Time</label>
+					<input type='Time' value={time} onChange={(e) => setTime(e.target.value)}/>
 				</div>
 				<div className='form-control form-control-check'>
 					<label>Set Reminder</label>

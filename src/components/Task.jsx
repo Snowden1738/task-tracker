@@ -5,7 +5,7 @@ const Task = ({ task, onDelete, onToggle, onCompletion }) => {
 		<div
 			className={
 				'task'
-				+ (task.reminder ? ' reminder' : '')
+				+ (task.reminder ? ' reminder' : ' no-reminder')
 				+ (task.completed ? ' done' : '')
 			}
 			onDoubleClick={() => onToggle(task.id)}>
@@ -17,8 +17,16 @@ const Task = ({ task, onDelete, onToggle, onCompletion }) => {
 				/>
 			</h3>
 			<input
-				type='datetime-local'
-				value={task.day}
+				type='date'
+				className='task-date'
+				value={task.date}
+				disabled={true}
+			/>
+			<br />
+			<input
+				type='time'
+				className='task-time'
+				value={task.time}
 				disabled={true}
 			/>
 			<br />

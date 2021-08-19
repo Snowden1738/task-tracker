@@ -10,9 +10,9 @@ const App = () => {
 	const getTasksSorted = (taskList) => {
 		const taskData = taskList
 		taskData.sort((task1, task2) => (
-			new Date(task2.day).getTime()
+			new Date(`${task2.date}T${task1.time}`).getTime()
 			-
-			new Date(task1.day).getTime()
+			new Date(`${task1.date}T${task1.time}`).getTime()
 		))
 		return taskData
 	}
