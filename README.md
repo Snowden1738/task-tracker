@@ -14,14 +14,12 @@ i. Clone the repository
 git clone https://github.com/Snowden1738/task-tracker
 ```
 
-ii. Open the terminal in the same folder
-
-iii. Move inside the cloned folder
+ii. Move inside the cloned folder
 ```bash
 cd task-tracker/
 ```
 
-iv. Install dependencies
+iii. Install dependencies
 ```bash
 npm install
 ```
