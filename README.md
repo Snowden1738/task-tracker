@@ -45,7 +45,7 @@ npm run dev
 - To add a task to the list, click on the `Add` button at the top of the page. This will make a pane appear, where you can enter the task's title, set the date and time, and check the box or leave it unchecked, depending on whether you want a reminder for the task or not. Then click the `Save Task` button to save the task.
 - When the `Hide automatically after adding task` checkbox is checked, the task adding pane automatically disappears upon clicking the `Save Task` button. If you want to keep adding multiple tasks at that moment, you can uncheck the box. This will prevent the pane from automatically disappearing after adding a task.
 - The `Hide` button that appears when the task adding pane is active, hides the pane when clicked.
-- Double-clicking an existing task toggles the reminder for the task. A thin, dark red bar on the left of a task denotes that the reminder for the task is active and inactive otherwise.
+- Double-clicking an existing task toggles the reminder for the task. A thin, red bar on the left of a task denotes that the reminder for the task is active and a fuchsia/light purplish bar denotes that the reminder is inactive.
 - Clicking the `Mark As Complete` button marks the particular task as completed, and the button text toggles to `Mark as Incomplete` which when clicked will mark it as incomplete. Apart from this, a completed task appears faded (visual effect) than an otherwise incomplete task.
 - The `X` button on the right of any task when clicked, deletes the task from the list.
 - The tasks stay arranged in reverse chronological order from top to bottom at any given time. In simple words, the task with the latest reminder time will appear at the top, and so on.
