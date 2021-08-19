@@ -24,7 +24,7 @@ iii. Install dependencies
 npm install
 ```
 
-### Usage
+### How to Start/Launch?
 i. Make sure you're inside the `task-tracker` folder
 
 ii. Start the JSON server
