@@ -39,7 +39,7 @@ iv. Start the Vite development server
 npm run dev
 ```
 
-### Usage & Features
+### Usage Instructions & Features
 - As stated, the task list is persistent. The tasks stay intact even after closing the browser or stopping the live server.
 - When there's no task in the list, or possibly when you're opening this app for the first time, you'll see a message in the task list area that says `No tasks pending! You're all caught up!`.
 - To add a task to the list, click on the `Add` button at the top of the page. This will make a pane appear, where you can enter the task's title, set the date and time, and check the box or leave it unchecked, depending on whether you want a reminder for the task or not. Then click the `Save Task` button to save the task.
