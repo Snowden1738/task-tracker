@@ -49,6 +49,7 @@ npm run dev
 - Clicking the `Mark As Complete` button marks the particular task as completed, and the button text toggles to `Mark as Incomplete` which when clicked will mark it as incomplete. Apart from this, a completed task appears faded (visual effect) than an otherwise incomplete task.
 - The `X` button on the right of any task when clicked, deletes the task from the list.
 - The tasks stay arranged in reverse chronological order from top to bottom at any given time. In simple words, the task with the latest reminder time will appear at the top, and so on.
+- You can search/filter tasks by typing in the `Search tasks` textbox, where only tasks with matching titles will show up.
 - Some additional basic effects have been incorporated to appeal to the overall look-and-feel of using the app. These include changing the tint/opacity of the task components and buttons when hovered on them with the mouse pointer. The task components and buttons temporarily change their size when clicked (active).
 
 ## What's Next?
