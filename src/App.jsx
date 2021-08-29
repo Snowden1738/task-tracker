@@ -6,6 +6,27 @@ import { useState, useEffect } from 'react'
 const App = () => {
 	const [showAdder, setAdder] = useState(false)
 	const [tasks, setTasks] = useState([])
+	const [query, setQuery] = useState('')
+
+	const getMatchingTasks = (tasks) => {
+		const contains = (text, pattern) => {
+			var i = 0
+			var j = 0
+
+			while (i < text.length && j < pattern.length) {
+				if (text[i].toLowerCase() === pattern[j].toLowerCase()) {
+					i = i + 1
+					j = j + 1
+				} else {
+					i = i + 1
+				}
+			}
+
+			return j == pattern.length
+		}
+
+		return tasks.filter((task) => contains(task.text, query))
+	}
 
 	const getTasksSorted = (taskList) => {
 		const taskData = taskList
@@ -112,12 +133,23 @@ const App = () => {
 			<br />
 			{
 				tasks.length > 0 ? (
-					<Tasks
-						taskList={tasks}
-						onDelete={deleteTask}
-						onToggle={toggleReminder}
-						onCompletion={toggleCompletion}
-					/>
+					<div>
+						<div className="form-control">
+							<input
+								type="text"
+								value={query}
+								onChange={(e) => setQuery(e.target.value)}
+								placeholder="Search tasks"
+							/>
+						</div>
+						<br />
+						<Tasks
+							taskList={getMatchingTasks(tasks)}
+							onDelete={deleteTask}
+							onToggle={toggleReminder}
+							onCompletion={toggleCompletion}
+						/>
+					</div>
 				) : ('No tasks pending! You\'re all caught up!')
 			}
 		</div>
