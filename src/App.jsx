@@ -10,8 +10,8 @@ const App = () => {
 
 	const getMatchingTasks = (tasks) => {
 		const contains = (text, pattern) => {
-			var i = 0
-			var j = 0
+			let i = 0
+			let j = 0
 
 			while (i < text.length && j < pattern.length) {
 				if (text[i].toLowerCase() === pattern[j].toLowerCase()) {
