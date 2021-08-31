@@ -4,6 +4,7 @@ import AddTask from './components/AddTask'
 import { useState, useEffect } from 'react'
 
 const App = () => {
+	const appName = 'Task Tracker'
 	const [showAdder, setAdder] = useState(false)
 	const [tasks, setTasks] = useState([])
 	const [query, setQuery] = useState('')
@@ -44,6 +45,7 @@ const App = () => {
 			setTasks(getTasksSorted(taskData))
 		}
 
+		document.title = appName
 		getTasks()
 	}, [])
 
