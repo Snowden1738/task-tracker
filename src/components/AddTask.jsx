@@ -1,71 +1,116 @@
-import { useState } from 'react'
+import TaskInputField from './TaskInputField'
 
-const AddTask = ({ addTask, closeAdder }) => {
-	const [text, setText] = useState('')
-	const [time, setTime] = useState('')
-	const [date, setDate] = useState('')
-	const [reminder, setReminder] = useState(false)
-	const [autoHideAdder, setAutoHide] = useState(true)
-
-	const onSubmit = (e) => {
-		e.preventDefault()
-
-		if (text.length == 0) {
-			alert('Please add a task title!')
-			return
+class AddTask extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			text: '',
+			time: '',
+			date: '',
+			reminder: false,
+			autoHideAdder: true,
+			prompt: false
 		}
-
-		if (date.length == 0) {
-			alert('Please add a date for the task!')
-		}
-
-		if (time.length == 0) {
-			alert('Please add a time for the task!')
-			return
-		}
-
-		const completed = false
-		addTask({ text, date, time, reminder, completed })
-
-		setText('')
-		setDate('')
-		setTime('')
-		setReminder(false)
-
-		autoHideAdder && closeAdder()
 	}
 
-	return (
-		<div>
-			<form className='add-form' onSubmit={onSubmit}>
-				<div className='form-control form-control-check'>
-					<label>
-						<h6>
-							<em>Hide automatically after adding task</em>
-						</h6>
-					</label>
-					<input type='checkbox' className='form-control-check' checked={autoHideAdder} onChange={(e) => setAutoHide(e.target.checked)} />
-				</div>
-				<div className='form-control'>
-					<label>Task</label>
-					<input type='text' placeholder='Add Task Title' value={text} onChange={(e) => setText(e.target.value)}/>
-				</div>
-				<div className='form-control'>
-					<label>Date</label>
-					<input type='date' value={date} onChange={(e) => setDate(e.target.value)}/>
-				</div>
-				<div className='form-control'>
-					<label>Time</label>
-					<input type='Time' value={time} onChange={(e) => setTime(e.target.value)}/>
-				</div>
-				<div className='form-control form-control-check'>
-					<label>Set Reminder</label>
-					<input type='checkbox' checked={reminder} onChange={(e) => setReminder(e.target.checked)}/>
-				</div>
-				<input type='submit' value='Save Task' className='btn btn-block'/>
-			</form>
-		</div>
-	)
+	setText = (newText) => {
+		this.setState({ text: newText })
+	}
+
+	setDate = (newDate) => {
+		this.setState({ date: newDate })
+	}
+
+	setTime = (newTime) => {
+		this.setState({ time: newTime })
+	}
+
+	releasePrompt = () => {
+		this.setState({ prompt: false })
+	}
+
+	onSubmit = (e) => {
+		e.preventDefault()
+
+		this.setState({ prompt:
+				this.state.text.length == 0
+				|| this.state.date.length == 0
+				|| this.state.time.length == 0
+			}, () => {
+			if (this.state.prompt) {
+				return
+			}
+	
+			this.props.addTask({
+				text: this.state.text,
+				date: this.state.date,
+				time: this.state.time,
+				reminder: this.state.reminder,
+				completed: false
+			})
+	
+			this.setState({ text: '' })
+			this.setState({ date: '' })
+			this.setState({ time: '' })
+			this.setState({ reminder: false })
+	
+			this.state.autoHideAdder && this.props.closeAdder()
+		})
+	}
+
+	render() {
+		return (
+			<div>
+				<form className='add-form'>
+					<div className='form-control form-control-check'>
+						<label>
+							<h6>
+								<em>Hide automatically after adding task</em>
+							</h6>
+						</label>
+						<input type='checkbox' className='form-control-check' checked={this.state.autoHideAdder} onChange={(e) => this.setState({ autoHideAdder: e.target.checked })} />
+					</div>
+					<TaskInputField
+						className='form-control'
+						type='text'
+						value={this.state.text}
+						placeholder='Add Task Title'
+						label='Task'
+						setValue={this.setText}
+						prompt={this.state.prompt}
+						releasePrompt={this.releasePrompt}
+					/>
+					<TaskInputField
+						className='form-control'
+						type='date'
+						value={this.state.date}
+						placeholder=''
+						label='Date'
+						setValue={this.setDate}
+						prompt={this.state.prompt}
+						releasePrompt={this.releasePrompt}
+					/>
+					<TaskInputField
+						className='form-control'
+						type='time'
+						value={this.state.time}
+						placeholder=''
+						label='Time'
+						setValue={this.setTime}
+						prompt={this.state.prompt}
+						releasePrompt={this.releasePrompt}
+					/>
+					<div className='form-control form-control-check'>
+						<label>Set Reminder</label>
+						<input type='checkbox' checked={this.state.reminder} onChange={
+							(e) => this.setState({ reminder: e.target.checked })
+						}/>
+					</div>
+					<input type='button' value='Save Task' className='btn btn-block' onClick={this.onSubmit}/>
+				</form>
+			</div>
+		)
+	}
 }
 
 export default AddTask
